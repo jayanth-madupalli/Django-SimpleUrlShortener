@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}
+{{ obj.url }} 
+{% endblock title %}
+{% block content %}
+<div class='container'>
+    <div class='row'>
+        <div class='text-center col-sm-12'>
+            {% if obj != None %}
+            <h3><a href="{{ obj.get_short_url }}" target="_blank" style="text-decoration:none">{{ obj.get_short_url }}</a> - Stats</h3>
+            <p> Original Url: {{ obj.url }} <br>
+            No of Raw Hits: 
+            {% if obj.hits != None %}
+            {{obj.hits}} <br>
+            {% else %} 
+            0 <br>
+            {% endif %}
+            No of Unique Hits:
+            {% if ipo != None %}
+            {{obj.uhits}}<br>
+            {% else %}
+            0<br>
+            {% endif %}
+            <br></p>
+            {% else %}
+            <h3> Oops! Invalid stats link.</h3>
+            {% endif %}
+        </div>
+    </div>
+    <div class='row'>
+        <div class='text-center col-sm-12 table-responsive'>
+            <h5 style="text-align:left">Stats: (Ordered by most recent IP)</h4>
+            <table class="table table-striped" >
+                <thead>
+                    <th>S.no</th>
+                    <th>IP Address</th>
+                    <th>Last Accessed</th>
+                    <th>No of hits</th>
+                </thead>
+                <tbody>
+                    {% for ipj in ipo %}
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ ipj.ipaddr }}</td>
+                    <td>{{ ipj.last_accessed }}</td>
+                    <td>{{ ipj.uhits }}</td>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

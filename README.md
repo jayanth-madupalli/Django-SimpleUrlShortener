@@ -10,6 +10,15 @@ To do:
 
 1. Add GeoLocation support and list top countries that visited the link.
 
+Setup:
+1. Setup a virtual environment of python or python3
+2. clone the git to it, install django using pip (I've coded this in v2.2.4)
+3. Run "python manage.py runserver" when in the src folder.
+
+Alternatively, you can also directly clone the git without a virtual environment.
+
+
+
 Screenshots:
 
 ![Screen1](https://github.com/jayanth-madupalli/Django-SimpleUrlShortener/blob/master/screenshots/screen1.png)
